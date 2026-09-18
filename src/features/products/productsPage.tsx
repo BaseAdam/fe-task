@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import { parseAsInteger, useQueryState } from "nuqs"
 
 import { AddProductButton } from "./addProduct/addProductButton.tsx"
@@ -15,6 +16,10 @@ export function ProductsPage() {
   const pageCount = getPageCount(products.length)
   const currentPage = clampPage(page, pageCount)
   const pageProducts = getPageItems(products, currentPage)
+
+  useEffect(() => {
+    if (page !== currentPage) void setPage(currentPage)
+  }, [page, currentPage, setPage])
 
   return (
     <main className="min-h-svh bg-muted/50">
