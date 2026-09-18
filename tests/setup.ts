@@ -1,0 +1,17 @@
+import { cleanup } from "@testing-library/react"
+import { afterEach } from "vitest"
+
+import "@testing-library/jest-dom/vitest"
+
+afterEach(cleanup)
+
+Element.prototype.hasPointerCapture = () => false
+Element.prototype.setPointerCapture = () => {}
+Element.prototype.releasePointerCapture = () => {}
+Element.prototype.scrollIntoView = () => {}
+
+globalThis.ResizeObserver = class {
+  observe() {}
+  unobserve() {}
+  disconnect() {}
+}
