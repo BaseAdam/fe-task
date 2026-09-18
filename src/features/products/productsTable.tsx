@@ -6,8 +6,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { formatPrice, formatStock } from "../../utils/format.ts"
-import type { ProductSchema } from "../../types/productSchema.ts"
+import { formatPrice, formatStock } from "@/utils/format.ts"
+import type { ProductSchema } from "@/types/productSchema.ts"
 import { ProductStatusBadge } from "./productStatusBadge"
 
 export function ProductsTable({
@@ -41,7 +41,10 @@ export function ProductsTable({
               {formatPrice(product.grossPrice, product.currency)}
             </TableCell>
             <TableCell>
-              <ProductStatusBadge isAvailable={product.isAvailable} />
+              <ProductStatusBadge
+                isAvailable={product.isAvailable}
+                stockQuantity={product.stockQuantity}
+              />
             </TableCell>
             <TableCell>{formatStock(product)}</TableCell>
           </TableRow>

@@ -19,7 +19,10 @@ export function ProductCardsMobile({
               <h2 className="text-base font-medium">{product.name}</h2>
               <p className="text-xs text-muted-foreground">{product.sku}</p>
             </div>
-            <ProductStatusBadge isAvailable={product.isAvailable} />
+            <ProductStatusBadge
+              isAvailable={product.isAvailable}
+              stockQuantity={product.stockQuantity}
+            />
           </div>
           <dl className="grid grid-cols-3 gap-1 rounded-lg bg-muted p-3">
             <div className="flex flex-col gap-1">
